@@ -52,8 +52,15 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a,b,c){ //eslint-disable-line
-  var sumOfThreeNums = a + b + c;
-  var productOfThreeNums = a * b * c;
+  var sumOfAandBArray = sum(a, b);
+  var sumOfAandB = sumOfAandBArray[0];
+  var sumOfThreeNums = sum(sumOfAandB, c)[0];
+ 
+  var productOfAandBArray = multiply(a, b);
+  var productOfAandB = productOfAandBArray[0];
+  var productOfThreeNums = multiply(productOfAandB, c)[0];
+
+  // var productOfThreeNums = a * b * c;
   var thirdElement = a + ' and ' + b + ' and ' + c + ' sum to ' + sumOfThreeNums + '.';
   var fourthElement = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + productOfThreeNums + '.';
   return [sumOfThreeNums, productOfThreeNums, thirdElement, fourthElement];
@@ -73,17 +80,27 @@ Write a function called sumArray() that takes in an array of numbers as its sing
 IMPORTANT DETAIL: You may not use the arithmetic operator + in this function. To do addition, use your sum() function that you've already created. You're going to have to be resourceful to figure out how to do this.
 
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumArray() function and see if the test passes.*/
-
+// var testArray = [2,3,4]; 
+// function sumArray(testArray){ 
+//   var sumAy = sum (testArray[0], testArray[1])[0];
+//   var sumOf3y = sum (sumAy,testArray[2])[0];
+//   var message =   testArray + ' was passed in as an array of numbers, and ' + sumOf3y + ' is their sum.';
+//   return [sumOf3y, message];
+// }
 // Write your code here
 var testArray = [2,3,4]; //eslint-disable-line
 
 function sumArray(testArray){ //eslint-disable-line
-
+  var sumAy = sum (testArray[0], testArray[1])[0];
+  var sumOf3y = sum (sumAy, testArray[2])[0];
+  var message = testArray + ' was passed in as an array of numbers, and ' + sumOf3y + ' is their sum.';
+  return [sumOf3y, message]; 
 }
+
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
